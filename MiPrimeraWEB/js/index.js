@@ -5,6 +5,9 @@ console.log("Conectado...............");
 
 // Variables globales y constantes
 
+let contactos = []; // Vector
+let datos = {}; // Objetos Literales
+
 let formulario = document.querySelector('.formulario');
 
 // Funciones
@@ -13,11 +16,23 @@ let formulario = document.querySelector('.formulario');
 
 const mostrarMensaje = (mensaje, error=null) => {
 
+    const alerta = document.createElement('p');
+
+    alerta.innerHTML = mensaje;
+
     if(error) {
-        console.log("error");
+        
+        alerta.classList.add('error');
+
     }else{
-        console.log("correcto");
+        alerta.classList.add('correcto');
     }
+
+    formulario.appendChild(alerta);
+
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
 
 };
 
@@ -32,14 +47,24 @@ const validarFormulario = (e) =>{
     // Validamos que todos los campos esten con valor
     if([nombre, telefono, correo, mensaje].includes("")){
         mostrarMensaje("Todos los campos son obligatorios", true);
-        return;
-    }
+        return;    }
 
     // Paso la validacion
     mostrarMensaje("Enviando la información a la base de datos");
 
-};
+    datos = {
+        "nombre": nombre,
+        "telefono": telefono,
+        "correo": correo,
+        "mensaje":mensaje
+    }
 
+    contactos.push(datos);
+    formulario.reset(); // resetea el formulario
+
+    console.log(datos);
+
+};
 
 // Programa Principal
 
