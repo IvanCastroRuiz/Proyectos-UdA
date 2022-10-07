@@ -14,6 +14,10 @@ let formulario = document.querySelector('.formulario');
 
 // Funciones Flecha
 
+const listarContactos = () =>{
+    contactos.forEach(contacto => console.log(contacto) )
+}
+
 const mostrarMensaje = (mensaje, error=null) => {
 
     const alerta = document.createElement('p');
@@ -33,6 +37,7 @@ const mostrarMensaje = (mensaje, error=null) => {
     setTimeout(() => {
         alerta.remove();
     }, 3000);
+
 
 };
 
@@ -62,6 +67,8 @@ const validarFormulario = (e) =>{
     contactos.push(datos);
     formulario.reset(); // resetea el formulario
 
+    listarContactos();
+    
     console.log(datos);
 
 };
