@@ -14,6 +14,12 @@ let formulario = document.querySelector('.formulario');
 
 // Funciones Flecha
 
+const mostrarSpinner = () =>{
+    
+    const spinner = document.querySelector('.spinner');
+    
+}
+
 const listarContactos = () =>{
     contactos.forEach(contacto => console.log(contacto) )
 }
@@ -55,6 +61,9 @@ const validarFormulario = (e) =>{
         return;    }
 
     // Paso la validacion
+
+    mostrarSpinner();    
+
     mostrarMensaje("Enviando la información a la base de datos");
 
     datos = {
@@ -68,8 +77,6 @@ const validarFormulario = (e) =>{
     formulario.reset(); // resetea el formulario
 
     listarContactos();
-    
-    console.log(datos);
 
 };
 
