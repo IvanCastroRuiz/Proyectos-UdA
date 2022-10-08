@@ -7,9 +7,6 @@ import {
 
 // Variables globales y constantes
 
-let contactos = []; // Vector
-let datos = {}; // Objetos Literales
-
 let formulario = document.querySelector('.formulario');
 
 // Funciones
