@@ -2,6 +2,9 @@
 
 // Bloque de variables y constantes
 
+let contactos = []; // Vector
+let datos = {}; // Objetos Literales
+
 let formulario = document.querySelector('.formulario');
 
 // Bloque Funciones
@@ -67,7 +70,8 @@ export const validarFormulario = (e) =>{
     // Validamos que todos los campos esten con valor
     if([nombre, telefono, correo, mensaje].includes("")){
         mostrarMensaje("Todos los campos son obligatorios", true);
-        return;    }
+        return;    
+    }
 
     // Paso la validacion
 
