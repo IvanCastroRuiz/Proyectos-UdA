@@ -2,12 +2,17 @@
 
 // Bloque de variables y constantes
 
-let contactos = []; // Vector
+import { contactos } from '../index.js'; // Vector
 let datos = {}; // Objetos Literales
 
 let formulario = document.querySelector('.formulario');
 
 // Bloque Funciones
+
+const sincronizarLocalStorage = (contactos) =>{
+
+    localStorage.setItem('contactos', JSON.stringify( contactos) );
+}
 
 const mostrarSpinner = () =>{
     
@@ -32,7 +37,7 @@ const mostrarSpinner = () =>{
 
 };
 
-const listarContactos = () =>{
+export const listarContactos = () =>{
     contactos.forEach(contacto => console.log(contacto) )
 };
 
@@ -97,6 +102,12 @@ export const validarFormulario = (e) =>{
             }
 
             contactos.push(datos);
+
+            // Guardar en LocalStorage
+
+            sincronizarLocalStorage(contactos);
+
+            console.log(contactos);
             formulario.reset(); // resetea el formulario
 
         } else if (result.isDenied) {
