@@ -75,18 +75,35 @@ export const validarFormulario = (e) =>{
 
     // Paso la validacion
 
-    mostrarSpinner();    
+    Swal.fire({
+        title: 'Estas seguro de guardar?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        denyButtonText: `No guardar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Guardado!', '', 'success')
 
-    datos = {
-        "nombre": nombre,
-        "telefono": telefono,
-        "correo": correo,
-        "mensaje":mensaje
-    }
+          //
+          mostrarSpinner();    
 
-    contactos.push(datos);
-    formulario.reset(); // resetea el formulario
+            datos = {
+                "nombre": nombre,
+                "telefono": telefono,
+                "correo": correo,
+                "mensaje":mensaje
+            }
 
-    listarContactos();
+            contactos.push(datos);
+            formulario.reset(); // resetea el formulario
+
+        } else if (result.isDenied) {
+            Swal.fire('No guardado', '', 'info')
+        }
+    })
+
+    //listarContactos();
 
 };
