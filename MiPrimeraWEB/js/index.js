@@ -9,6 +9,8 @@ import {
 // Variables globales y constantes
 
 let formulario = document.querySelector('.formulario');
+let enlaceListaContacto = document.querySelector('#lista-contacto');
+
 export let contactos = [];
 
 // Funciones
@@ -18,9 +20,10 @@ export let contactos = [];
 
 document.addEventListener("DOMContentLoaded", () =>{
 
-
     contactos = JSON.parse( localStorage.getItem('contactos') ) || [];
     console.log(contactos);
+    
     formulario.addEventListener("submit",validarFormulario );
-    listarContactos();
+    enlaceListaContacto.addEventListener("click", listarContactos)
+   
 });
