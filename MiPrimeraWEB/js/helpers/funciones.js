@@ -16,6 +16,8 @@ const sincronizarLocalStorage = (contactos) =>{
 
 const mostrarSpinner = () =>{
     
+    let x = 4;
+
     const spinnerContenedor = document.querySelector('.contenedor-spinner');
 
     spinnerContenedor.innerHTML = `
