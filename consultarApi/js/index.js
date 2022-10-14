@@ -13,34 +13,22 @@ const listarGuitarras = (resultado) =>{
         // Destructuring
         const {id, nombre, descripcion, precio, imagen } = articulo;
         const { url } = imagen;
-
-        const contenedorImagen = document.querySelector("#container-imagen");
-
-
-        contenedorImagen.innerHTML += ` 
-                                        <div>
-                                            <div>
-                                                <strong>ID: </strong>${id}
-                                            </div>  
-                                            <div>
-                                                    <strong>Nombre: </strong> ${nombre}
-                                            </div> 
-                                            <div>
-                                                    <img src="${url}" alt="${nombre}" >
+        const contenedorImagen = document.querySelector(".listado");
+        contenedorImagen.innerHTML += `
+                                            <div class="listado-guitarra">
+                                            <img layout='responsive' width="100" height="220" src="${url}" alt="${nombre}">
+                                                
+                                                <div class="listado-contenido">
+                                                    <h3>${nombre}</h3>
+                                                    <p class="listado-descripcion">${descripcion}</p>
+                                                    <p class="listado-precio">$${precio}</p>
+                                                    <a data-guitarra="${id}" class="listado-enlace" href="guitarra.html?id=${id}">
+                                                        Ver Producto
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div>
-                                                    <strong>Descripcion: </strong> ${descripcion}
-                                            </div> 
-                                            <div>
-                                                    <strong>Precio: </strong> ${precio}
-                                            </div> 
-                                        </div>
-                                        <hr/>
-                                        <br/>
-                                    `;
+                                        `;
     } );
-
-
 };
 
 
