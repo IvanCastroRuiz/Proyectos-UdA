@@ -292,6 +292,9 @@ h1,h2,h3{
 
 .fooster{
     text-align: center;
+    color: var(--primario);
+    font-size: large;
+    font-weight: bold;
 }
 
 /* validacion del funcion formulario*/

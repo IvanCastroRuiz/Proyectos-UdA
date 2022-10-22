@@ -1,12 +1,13 @@
-import React from 'react'
+import { Link } from "react-router-dom" 
 
 const Nav = () => {
   return (
     <>
         <div className="nav-bg">
             <nav className="navegacion-principal contenedor">
-                <a id="formulario-inicio" href="index.html">Inicio</a>
-                <a id="lista-contacto" href="#">Lista Contactos</a>
+                <Link to="/">Inicio</Link>
+                <Link to="contacto">Contactanos</Link>
+                <Link to="lista-articulo">Lista Articulos</Link>
             </nav>
         </div>
     </>

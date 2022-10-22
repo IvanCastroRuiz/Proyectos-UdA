@@ -8,7 +8,8 @@ import {
 import Layout from './Layout/Layout';
 
 // Components
-import Home from './components/Home';
+import Home from './pages/Home';
+import Formulario from './pages/Formulario';
 
 // Styles 
 import '../src/assets/css/normalize.css';
@@ -23,6 +24,7 @@ function App() {
         {/* Rutas Publicas */}
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />}/>
+          <Route path='contacto' element={<Formulario />}/>
         </Route>
       </Routes>
     </BrowserRouter>    
