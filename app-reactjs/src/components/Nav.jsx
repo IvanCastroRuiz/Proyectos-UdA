@@ -7,7 +7,7 @@ const Nav = () => {
             <nav className="navegacion-principal contenedor">
                 <Link to="/">Inicio</Link>
                 <Link to="contacto">Contactanos</Link>
-                <Link to="lista-articulo">Lista Articulos</Link>
+                <Link to="lista-articulos">Lista Articulos</Link>
             </nav>
         </div>
     </>

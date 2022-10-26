@@ -1,8 +1,9 @@
 import { useState }  from 'react'
 
-const Formulario = () => {
+import Alerta from '../components/Alerta';
 
-   
+const Formulario = () => {
+  
 
     const [ nombre, setNombre ] = useState("");
     const [ telefono, setTelefono ] = useState("");
@@ -10,6 +11,23 @@ const Formulario = () => {
     const [ mensaje, setMensaje ] = useState("");
 
     const [ alerta, setAlerta ] = useState({});
+
+    const [ contactos, setContactos ] = useState(
+        localStorage.getItem('contactos') ? JSON.parse(localStorage.getItem('contactos')) : []
+    );
+
+    const sincronizarLocalStorage = (contactos) => {
+        console.log(contactos);
+        setContactos(contactos.push({
+            nombre, 
+            telefono, 
+            correo, 
+            mensaje
+        }));
+        console.log(contactos);
+        localStorage.setItem('contactos', JSON.stringify(contactos)); 
+
+    };
 
 
     const handletSubmit = (e) => {
@@ -23,12 +41,23 @@ const Formulario = () => {
             return;
         }
 
+        // Paso la validacion
+
         setAlerta({
             msg: "Informacion enviada exitosamente"
-        })
+        });
 
+        sincronizarLocalStorage(contactos);
+       
+
+        setNombre("");
+        setTelefono("");
+        setCorreo("");
+        setMensaje("");
 
     };
+    // Destruccion de Objeto
+    const { msg } = alerta;
 
     return (
         
@@ -89,8 +118,11 @@ const Formulario = () => {
 
                     {/* Operador Ternario */}
                     {
-                        alerta &&
-                            (<p className={ ` ${alerta.error} ` ? 'error' : 'correcto' } >{alerta.msg}</p>)
+                        msg &&
+                                 <Alerta
+                                    alerta={alerta}
+                                    setAlerta={setAlerta}
+                                 />   
                         
                     }
 
