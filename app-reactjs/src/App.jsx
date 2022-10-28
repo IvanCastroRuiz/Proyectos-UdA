@@ -29,7 +29,7 @@ function App() {
           <Route index element={<Home />}/>
           <Route path='contacto' element={<Formulario />}/>
           <Route path='lista-articulos' element={<ListaArticulos />}/>
-          <Route path='lista-articulos/articulo/:id' element={<DetalleArticulo />}/>
+          <Route path='articulo/:id' element={<DetalleArticulo />}/>
         </Route>
       </Routes>
     </BrowserRouter>    

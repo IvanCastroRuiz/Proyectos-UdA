@@ -23,7 +23,7 @@ const Articulo = ({articulo}) => {
 
             <Link
               id={`${_id}`}
-              to={`articulo/${_id}`}
+              to={`/articulo/${_id}`}
             >
                Ver detalle
             </Link>
