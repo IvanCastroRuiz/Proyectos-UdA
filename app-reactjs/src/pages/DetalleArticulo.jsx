@@ -23,14 +23,14 @@ const DetalleArticulo = () => {
 
   const { nombre, precio, descripcion, imagen } = articulo;
   console.log(nombre, precio, descripcion, imagen);
-//   const { url } = imagen;
+
   return (
     <div>
         <div>
             <h2>
                 { nombre }
             </h2>    
-            {/* <img src={url} alt={articulo.nombre} /> */}
+            <img src={imagen.url} alt={articulo.nombre} />
 
             <p>
                 { descripcion }
