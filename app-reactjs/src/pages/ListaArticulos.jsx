@@ -8,7 +8,7 @@ const ListaArticulos = () => {
   useEffect(() =>{
     const consultarApi = async () =>{
         try {
-            const respuesta = await fetch("https://whispering-wildwood-03076.herokuapp.com/guitarras/");
+            const respuesta = await fetch("https://whispering-wildwood-03076.herokuapp.com/guitarras");
             const resultado = await respuesta.json();
             setConsulta(resultado);
         } catch (error) {
@@ -20,7 +20,7 @@ const ListaArticulos = () => {
 
   return (
     <div className="listado">
-        
+        <h1>Lista Productos</h1>
        {
         consulta.length > 0 
                 ?

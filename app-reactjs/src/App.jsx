@@ -17,7 +17,7 @@ import DetalleArticulo from './pages/DetalleArticulo';
 import '../src/assets/css/normalize.css';
 import '../src/assets/css/styles.css';
 import '../src/assets/css/Articulo.module.css';
-import './App.css'
+import '../src/assets/css/App.css'
 
 function App() {
   

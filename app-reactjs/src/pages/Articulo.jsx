@@ -14,7 +14,7 @@ const Articulo = ({articulo}) => {
         <div>
           <strong>Nombre:</strong> { nombre }
         </div>
-        <img layout='responsive' width="100" height="220" src={`${imagen.url}`} alt={`${nombre}`}/>
+        <img layout='responsive' width="100" height="220" src={imagen.url} alt={nombre}/>
 
         <div>
             <div>
