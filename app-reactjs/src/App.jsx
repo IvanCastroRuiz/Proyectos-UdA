@@ -11,6 +11,7 @@ import Layout from './Layout/Layout';
 import Home from './pages/Home';
 import Formulario from './pages/Formulario';
 import ListaArticulos from './pages/ListaArticulos';
+import DetalleArticulo from './pages/DetalleArticulo';
 
 // Styles 
 import '../src/assets/css/normalize.css';
@@ -28,6 +29,7 @@ function App() {
           <Route index element={<Home />}/>
           <Route path='contacto' element={<Formulario />}/>
           <Route path='lista-articulos' element={<ListaArticulos />}/>
+          <Route path='lista-articulos/articulo/:id' element={<DetalleArticulo />}/>
         </Route>
       </Routes>
     </BrowserRouter>    
