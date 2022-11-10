@@ -2,7 +2,10 @@
 import express from "express";
 import dotenv from 'dotenv';
 import cors from 'cors';
+import fileupload from 'express-fileupload';
+
 import conectarDB from './config/db.js';
+
 import usuarioRoutes from './routes/usuarioRoutes.js';
 import productoRoutes from './routes/productoRoutes.js';
 import ventaRoutes from './routes/ventaRoutes.js';
@@ -15,11 +18,16 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+app.use(fileupload({
+    useTempFiles: true,
+    tempFileDir: './files'
+}));
+
 conectarDB();
 
 // middlewares
 // Se utiliza para realizar la comunicacion entre el servidor del frontend y el backend
-/*const dominiosPermitidos = [process.env.FRONTEND_URL];
+const dominiosPermitidos = [process.env.FRONTEND_URL];
 const corsOptions = {
     origin: function (origin, callback) {
         if (dominiosPermitidos.indexOf(origin) !== -1) {
@@ -30,7 +38,7 @@ const corsOptions = {
         }
     }
 };
-app.use(cors(corsOptions));*/
+app.use(cors(corsOptions));
 
 // Gestion de Usuarios
 app.use('/api/usuarios', usuarioRoutes);
