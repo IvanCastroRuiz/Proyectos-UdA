@@ -86,7 +86,8 @@ const deleteProductos = async (req, res) => {
 
 const getProducto = async (req, res) => {
     try {
-        const OneProduct = await Producto.findById(req.params.id); if (!OneProduct) {
+        const OneProduct = await Producto.findById(req.params.id); 
+        if (!OneProduct) {
             return res.sendStatus(404);
         } else {
             return res.json(OneProduct);
